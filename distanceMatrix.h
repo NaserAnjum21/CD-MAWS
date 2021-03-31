@@ -69,7 +69,7 @@ double GetMawCosine(int a,int b)
 
 
 
-int CalculateDistanceMatrix(vector<Set> &mawset, vector<map<string,char>>& mawmap, vector<vector<double>>& diffMatrix, int num_of_genes, int diffIndex)
+void CalculateDistanceMatrix(vector<Set> &mawset, vector<map<string,char>>& mawmap, vector<vector<double>>& diffMatrix, int num_of_genes, int diffIndex)
 {
 
     Set uSet, iSet, sdSet, a, b, c, globalSet;
