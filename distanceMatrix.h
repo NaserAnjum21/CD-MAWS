@@ -30,8 +30,6 @@ void GetVectors(Set global,int num_of_genes, vector<map<string,char>>& mawmap, b
 {
     int N = global.Cardinality();
 
-    auto start = cloc::now();
-
     for(int i = 0; i < num_of_genes; i++)
     {
         frowvec r = zeros<frowvec>(N);
@@ -52,12 +50,6 @@ void GetVectors(Set global,int num_of_genes, vector<map<string,char>>& mawmap, b
 
         mawmap[i].clear();
     }
-
-    sec duration = cloc::now() - start;
-
-    cout << "Vectors created. Time taken (sec)--> " << duration.count() << endl;
-
-
 }
 
 
@@ -74,10 +66,16 @@ void CalculateDistanceMatrix(vector<Set> &mawset, vector<map<string,char>>& mawm
 
     Set uSet, iSet, sdSet, a, b, c, globalSet;
 
+    auto start = cloc::now();
     
     globalSet = GetGlobalUnion(mawset, num_of_genes);
     GetVectors(globalSet,num_of_genes,mawmap, false);
     
+    sec duration = cloc::now() - start;
+
+    cout << "Vectors created. Time taken (sec)--> " << duration.count() << endl;
+
+    start = cloc::now();
 
     for (int i = 0; i < num_of_genes; i++)
     {
@@ -96,6 +94,10 @@ void CalculateDistanceMatrix(vector<Set> &mawset, vector<map<string,char>>& mawm
             }
         }
     }
+
+    duration = cloc::now() - start;
+    
+    cout << "Distance matrix calculated. Time taken (sec)--> " << duration.count() << endl;
 }
 
 void printMatrix(string output_file, vector<string> taxas, vector<vector<double>>& diffMatrix, int num_of_genes, int distIndex, int formatIndex)

@@ -108,15 +108,15 @@ int main(int argc, char *argv[])
     int outputFileFormat = formatMap[output_format];
     maxMAWlength = maxMAWlen;
 
-    start = cloc::now();
     CalculateDistanceMatrix(maws, mawmap, diffMatrix, num_of_genes, distMethod);
-    duration = cloc::now() - start;
-
-    cout << "Distance matrix calculated. Time taken (sec)--> " << duration.count() << endl;
-
+    
     printMatrix(output_file, taxas, diffMatrix, num_of_genes, distMethod, outputFileFormat);
 
     cout << "Distance matrix printed...\n " << endl;
+
+    duration = cloc::now() - start;
+
+    cout << "Total time taken (sec)--> " << duration.count() << endl;
 
     return 0;
 }
