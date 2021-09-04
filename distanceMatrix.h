@@ -144,7 +144,7 @@ void printMatrix(string output_file, vector<string> taxas, vector<vector<double>
             out << taxas[i];
 
             for (int j = 0; j < num_of_genes; j++)
-                out << "\t" << diffMatrix[i][j];
+                out << " " << diffMatrix[i][j];
 
             out << endl;
         }
