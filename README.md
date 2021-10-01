@@ -51,6 +51,20 @@ python3 distToNewick.py -i Data/dist_matrix.csv -o Data/tree.txt -a UPGMA
 ```
 Two tree construction algorithms are used here - NJ and UPGMA.
 
+### Multiple Fasta File Input Format
+
+As the MAW suite only supports one fasta file as input, to incorporate the case of multiple genomes/contigs/chromosomes in separate input files, we have a pre-processor to combine them into a single fasta file. A sample command:
+```
+python processMultipleInputs.py fileOfFiles.txt output.fasta
+```
+
+The file-of-files should have file locations of each input files in each line. For example:
+```
+Data/genome1.fasta
+Data/genome2.fasta
+Data/genome3.fasta
+```
+
 ### Additional Info
 If you want to perform all the installation and running steps all at once, there is a script with sample commands and parameters. Run the following:
 ```
@@ -61,5 +75,5 @@ There are few shell scripts in this repository which might need permissions befo
 chmod +x <script_file_name>
 ```
 
-N.B. : The MAW suite by default appends content to exisiting file. So beware of this while using the same output file name repeatedly. 
+**N.B.** : The MAW suite by default appends content to existing output file. So beware of this while using the same output file name repeatedly. You should either use different output file name or delete the output file first. For example, to avoid duplicate contents, the sample script deletes the output file first if it exists.
 
