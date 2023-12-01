@@ -77,3 +77,5 @@ chmod +x <script_file_name>
 
 **N.B.** : The MAW suite by default appends content to existing output file. So beware of this while using the same output file name repeatedly. You should either use different output file name or delete the output file first. For example, to avoid duplicate contents, the sample script deletes the output file first if it exists.
 
+### Reference
+[CD-MAWS: An Alignment-Free Phylogeny Estimation Method Using Cosine Distance on Minimal Absent Word Sets](https://doi.org/10.1109/TCBB.2021.3136792)
